@@ -1,4 +1,4 @@
-public class Games {
+public class Game {
     /*
     ID,GameName,BasePointPerRound
     1,Valorant,12
@@ -17,7 +17,7 @@ public class Games {
     private String name;
     private int pointPerPound;
 
-    public Games(int id,String name, int pointPerPound){
+    public Game(int id, String name, int pointPerPound){
         this.id = id;
         this.name = name;
         this.pointPerPound = pointPerPound;
