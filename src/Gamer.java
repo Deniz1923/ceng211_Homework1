@@ -17,14 +17,14 @@ public class Gamer {
 
     public void calculateSeasonResults(Match[] gamerMatches) {
         for (Match m : gamerMatches) {
-            this.totalPoints += m.matchPoints; // [cite: 49]
+            this.totalPoints += m.matchPoints;
         }
-        this.averagePerMatch = this.totalPoints / 15.0; // [cite: 50]
+        this.averagePerMatch = this.totalPoints / 15.0;
 
-        // [cite: 47, 52]
-        if (this.totalPoints >= 2000) this.medal = "GOLD"; // [cite: 53]
-        else if (this.totalPoints >= 1200) this.medal = "SILVER"; // [cite: 54]
-        else if (this.totalPoints >= 700) this.medal = "BRONZE"; // [cite: 55]
-        else this.medal = "NONE"; // [cite: 56]
+
+        if (this.totalPoints >= 2000) this.medal = "GOLD";
+        else if (this.totalPoints >= 1200) this.medal = "SILVER";
+        else if (this.totalPoints >= 700) this.medal = "BRONZE";
+        else this.medal = "NONE";
     }
 }
