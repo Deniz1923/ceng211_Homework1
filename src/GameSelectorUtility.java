@@ -1,0 +1,2 @@
+public class GameSelectorUtility {
+}

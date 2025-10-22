@@ -1,0 +1,2 @@
+public class RawPointsCalculator {
+}
