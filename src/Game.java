@@ -1,7 +1,7 @@
 class Game {
-    private int id;
-    private String gameName;
-    private int basePointPerRound;
+    private final int id;
+    private final String gameName;
+    private final int basePointPerRound;
 
     public Game(int id, String gameName, int basePointPerRound) {
         this.id = id;

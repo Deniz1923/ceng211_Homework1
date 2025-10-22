@@ -1,9 +1,9 @@
 public class Gamer {
-    private int ID;
-    private String Nickname;
-    private String Name;
-    private int Phone;
-    private int ExperienceYears;
+    private final int ID;
+    private final String Nickname;
+    private final String Name;
+    private final int Phone;
+    private final int ExperienceYears;
 
     public Gamer(int ID,String Nickname, String Name, int Phone,int ExperienceYears){
         this.Phone = Phone;

@@ -6,12 +6,5 @@ public class EsportsManagementApp {
     public static void main(String[] args) {
 
 
-        Query query = new Query(matchManagement.getMatches(), pointsBoard);
-        query.queryHighestScoringMatch();
-        query.queryLowestScoringMatchAndContributor();
-        query.queryLowestBonusMatch();
-        query.queryHighestScoringGamer();
-        query.queryTotalTournamentPoints();
-        query.queryMedalDistribution();
     }
 }
