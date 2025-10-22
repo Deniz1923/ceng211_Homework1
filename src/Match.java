@@ -1,11 +1,10 @@
 public class Match {
-    private static final int MATCH_COUNT = 15;
-    private static final int GAME_COUNT = 3;
+    private static final int MATCH_COUNT = Config.MATCH_COUNT;
+    private static final int GAME_COUNT = Config.GAME_COUNT;
 
     private int id;
     private Game[] games;
     private int[] rounds;
-    public final int MAX_ROUNDS = 10;
     private int rawPoints;
     private int skillPoints;
     private int bonusPoints;
@@ -45,16 +44,17 @@ public class Match {
 
     public void manageMatch() {
         for (int matchNum = 1; matchNum <= MATCH_COUNT; matchNum++) {
-            int[] chosenGameIDs = RandUtil.randomIntegers(GAME_COUNT, games.length); //3 for this code
-            for (int id : chosenGameIDs) {
+            int[] chosenGameIDs = RandUtil.randomIntegers(GAME_COUNT, games.length);
+            Game[] chosenGames = new Game[GAME_COUNT];
+            int[] rounds = new int[GAME_COUNT];
 
-                int[] arrayForEachGame = new int[3];
-                Game g = games[id - 1]; // since CSV IDs start from 1
-                arrayForEachGame[0] = g.getID();
-                arrayForEachGame[1] = RandUtil.randInt(10);
-                arrayForEachGame[2] = arrayForEachGame[1] * g.getBasePointPerRound();
-
+            for (int i = 0; i < GAME_COUNT; i++) {
+                int id = chosenGameIDs[i];
+                chosenGames[i] = games[id - 1];   // convert ID → index
+                rounds[i] = RandUtil.randInt(Config.MAX_ROUNDS); // random rounds 1-10
             }
+
+            Match match = new Match(matchNum, chosenGames, rounds);
         }
     }
 

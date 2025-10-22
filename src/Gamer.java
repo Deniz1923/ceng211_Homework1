@@ -3,11 +3,12 @@
  */
 
 public class Gamer {
-    private int ID;
-    private String Nickname;
-    private String Name;
-    private String Phone;
-    private int ExperienceYears;
+    private final int ID;
+    private final String Nickname;
+    private final String Name;
+    private final String Phone;
+    private final int ExperienceYears;
+    private Match[] matches ;
 
     public Gamer(int ID, String Nickname, String Name, String Phone, int ExperienceYears){
         this.Phone = Phone;
@@ -15,6 +16,7 @@ public class Gamer {
         this.Nickname = Nickname.trim();
         this.ExperienceYears = ExperienceYears;
         this.Name = Name;
+        this.matches = new Match[15];
     }
 
     public int getID(){
@@ -32,4 +34,6 @@ public class Gamer {
     public int getExperienceYears(){
         return this.ExperienceYears;
     }
+    public Match[] getMatches() { return matches; }
+    public void setMatch(int index, Match match) { matches[index] = match; }
 }

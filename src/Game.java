@@ -3,9 +3,9 @@
  */
 
 public class Game {
-    private int ID;
-    private String gameName;
-    private int basePointPerRound;
+    private final int ID;
+    private final String gameName;
+    private final int basePointPerRound;
 
     public Game(int ID, String gameName, int basePointPerRound) {
         if (ID <= 0) throw new IllegalArgumentException("ID must be positive");
