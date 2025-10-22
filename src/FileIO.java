@@ -6,8 +6,8 @@ import java.nio.charset.StandardCharsets;
 
 public class FileIO {
 
-    private String[] gamesArray;
-    private String[] gamersArray;
+    private Game[] gamesArray;
+    private Gamer[] gamersArray;
 
     public FileIO(String GAMES_FILE_PATH, String GAMERS_FILE_PATH) {
         try {
@@ -26,11 +26,11 @@ public class FileIO {
         }
     }
 
-    public String[] getGamesArray() {
+    public static Game[] getGamesArray() {
         return this.gamesArray;
     }
 
-    public String[] getGamersArray() {
+    public static Gamer[] getGamersArray() {
         return this.gamersArray;
     }
 
@@ -65,4 +65,6 @@ public class FileIO {
             }
         }
     }
+
+
 }
