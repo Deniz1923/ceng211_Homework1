@@ -1,7 +1,11 @@
+/** Final Version of Game Object Class
+
+ */
+
 public class Game {
-    private final int ID;
-    private final String gameName;
-    private final int basePointPerRound;
+    private int ID;
+    private String gameName;
+    private int basePointPerRound;
 
     public Game(int ID, String gameName, int basePointPerRound) {
         this.ID = ID;
@@ -12,4 +16,10 @@ public class Game {
     public int getID() { return ID; }
     public String getGameName() { return gameName; }
     public int getBasePointPerRound() { return basePointPerRound; }
+
+    @Override
+    public String toString(){
+        return this.gameName;
+    }
+
 }

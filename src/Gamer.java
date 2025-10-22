@@ -1,9 +1,13 @@
+/** Final Version of Gamer Object Class
+
+ */
+
 public class Gamer {
-    private final int ID;
-    private final String Nickname;
-    private final String Name;
-    private final int Phone;
-    private final int ExperienceYears;
+    private int ID;
+    private String Nickname;
+    private String Name;
+    private int Phone;
+    private int ExperienceYears;
 
     public Gamer(int ID,String Nickname, String Name, int Phone,int ExperienceYears){
         this.Phone = Phone;
