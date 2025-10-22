@@ -6,13 +6,10 @@ import java.nio.charset.StandardCharsets;
 
 public class FileIO {
 
-    private static final String GAMES_FILE_PATH = "games.csv";
-    private static final String GAMERS_FILE_PATH = "gamers.csv";
-
     private String[] gamesArray;
     private String[] gamersArray;
 
-    public FileIO() {
+    public FileIO(String GAMES_FILE_PATH, String GAMERS_FILE_PATH) {
         try {
             int gameLineCount = countLines(GAMES_FILE_PATH);
             this.gamesArray = new String[gameLineCount];
