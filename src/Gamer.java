@@ -16,15 +16,12 @@ public class Gamer {
     public int getID(){
         return this.ID;
     }
-
     public String getNickname(){
         return this.Nickname;
     }
-
     public String getName(){
         return this.Name;
     }
-
     public int getPhone(){
         return this.Phone;
     }
