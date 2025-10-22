@@ -12,11 +12,11 @@ public class FileIO {
     public FileIO(String GAMES_FILE_PATH, String GAMERS_FILE_PATH) {
         try {
             int gameLineCount = countLines(GAMES_FILE_PATH);
-            this.gamesArray = new String[gameLineCount];
+            this.gamesArray = new Game[gameLineCount];
             readLinesToArray(GAMES_FILE_PATH, this.gamesArray);
 
             int gamerLineCount = countLines(GAMERS_FILE_PATH);
-            this.gamersArray = new String[gamerLineCount];
+            this.gamersArray = new Gamer[gamerLineCount];
             readLinesToArray(GAMERS_FILE_PATH, this.gamersArray);
 
         } catch (IOException e) {
