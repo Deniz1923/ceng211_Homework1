@@ -5,6 +5,7 @@ public class Match {
     private int id;
     private Game[] games;
     private int[] rounds;
+    public final int MAX_ROUNDS = 10;
     private int rawPoints;
     private int skillPoints;
     private int bonusPoints;
