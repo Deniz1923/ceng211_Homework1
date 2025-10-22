@@ -6,10 +6,10 @@ public class Gamer {
     private int ID;
     private String Nickname;
     private String Name;
-    private int Phone;
+    private String Phone;
     private int ExperienceYears;
 
-    public Gamer(int ID,String Nickname, String Name, int Phone,int ExperienceYears){
+    public Gamer(int ID, String Nickname, String Name, String Phone, int ExperienceYears){
         this.Phone = Phone;
         this.ID = ID;
         this.Nickname = Nickname.trim();
@@ -26,7 +26,7 @@ public class Gamer {
     public String getName(){
         return this.Name;
     }
-    public int getPhone(){
+    public String getPhone(){
         return this.Phone;
     }
     public int getExperienceYears(){
