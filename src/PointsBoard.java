@@ -10,6 +10,11 @@ public class PointsBoard {
         NONE
     }
 
+
+
+
+
+
     public Gamer[] getGamers() { return gamers; }
     public int[] getTotalPoints() { return totalPoints; }
     public double[] getAveragePoints() { return averagePoints; }

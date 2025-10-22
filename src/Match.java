@@ -12,7 +12,7 @@ public class Match {
         this.games = games;
         this.rounds = rounds;
     }
-    public void calculatePoints(int experienceYears) {
+    public void calculatePoints(Gamer player) {
         // Calculate raw points
         rawPoints = 0;
         for (int i = 0; i < 3; i++) {
@@ -20,7 +20,7 @@ public class Match {
         }
 
         // Calculate skill points
-        int expMultiplier = Math.min(experienceYears, 10);
+        int expMultiplier = Math.min(player.getExperienceYears(), 10);
         double multiplier = 1.0 + (expMultiplier * 0.02);
         skillPoints = (int) Math.floor(rawPoints * multiplier);
 
