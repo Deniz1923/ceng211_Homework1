@@ -5,44 +5,30 @@ public class Gamer {
     private int Phone;
     private int ExperienceYears;
 
-    public int getID(){
-        return this.ID;
+    public Gamer(int ID,String Nickname, String Name, int Phone,int ExperienceYears){
+        this.Phone = Phone;
+        this.ID = ID;
+        this.Nickname = Nickname.trim();
+        this.ExperienceYears = ExperienceYears;
+        this.Name = Name;
     }
 
-    public void setID(int ID){
-        this.ID = ID;
+    public int getID(){
+        return this.ID;
     }
 
     public String getNickname(){
         return this.Nickname;
     }
 
-    public void setNickname(String Nickname){
-        this.Nickname = Nickname.trim();
-    }
-
     public String getName(){
         return this.Name;
-    }
-
-    public void setName(String Name){
-        this.Name = Name.trim();
     }
 
     public int getPhone(){
         return this.Phone;
     }
-
-    public void setPhone(int Phone){
-        this.Phone = Phone;
-    }
-
     public int getExperienceYears(){
         return this.ExperienceYears;
     }
-
-    public void setExperienceYears(){
-        this.ExperienceYears = ExperienceYears;
-    }
-
 }
