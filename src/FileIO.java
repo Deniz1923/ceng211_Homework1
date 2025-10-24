@@ -67,114 +67,119 @@ public class FileIO {
     }
 }
 
-/*import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+/* AI.io
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.FileInputStream;
+import java.nio.charset.StandardCharsets;
 
-public class FileIO {
+public final class FileIO {
+    private final Game[]  gamesArray;
+    private final Gamer[] gamersArray;
 
-    private Game[] gamesArray;
-    private Gamer[] gamersArray;
 
-    public FileIO(String gamesFilePath, String gamersFilePath) {
-        try {
-            int gameCount = countLines(gamesFilePath);
-            gamesArray = new Game[gameCount];
-            readGamesFile(gamesFilePath, gamesArray);
+public FileIO(String gamesCsvPath, String gamersCsvPath) throws IOException {
+    int gameCount  = countValidRows(gamesCsvPath, 3);   // id, name, basePoint
+    int gamerCount = countValidRows(gamersCsvPath, 5);  // id, nick, name, phone, exp
 
-            int gamerCount = countLines(gamersFilePath);
-            gamersArray = new Gamer[gamerCount];
-            readGamersFile(gamersFilePath, gamersArray);
+    this.gamesArray  = new Game[gameCount];
+    this.gamersArray = new Gamer[gamerCount];
 
-        } catch (IOException e) {
-            System.err.println("Error reading files: " + e.getMessage());
-            gamesArray = new Game[0];
-            gamersArray = new Gamer[0];
-        }
-    }
-
-    // === Getters ===
-    public Game[] getGamesArray() {
-        return gamesArray;
-    }
-
-    public Gamer[] getGamersArray() {
-        return gamersArray;
-    }
-
-    // === Private Helper Methods ===
-    private int countLines(String filePath) throws IOException {
-        int count = 0;
-        BufferedReader reader = null;
-
-        try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
-            while (reader.readLine() != null) {
-                count++;
-            }
-        } finally {
-            if (reader != null) reader.close();
-        }
-        return count;
-    }
-
-    private void readGamesFile(String filePath, Game[] targetArray) throws IOException {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
-            String line;
-            int index = 0;
-
-            while ((line = reader.readLine()) != null && index < targetArray.length) {
-                String[] parts = line.split(",");
-                if (parts.length == 3) {
-                    try {
-                        int id = Integer.parseInt(parts[0].trim());
-                        String name = parts[1].trim();
-                        int basePoint = Integer.parseInt(parts[2].trim());
-                        targetArray[index] = new Game(id, name, basePoint);
-                        index++;
-                    } catch (NumberFormatException e) {
-                        System.err.println("Invalid number format in game line: " + line);
-                    }
-                } else {
-                    System.err.println("Invalid game line format: " + line);
-                }
-            }
-        } finally {
-            if (reader != null) reader.close();
-        }
-    }
-
-    private void readGamersFile(String filePath, Gamer[] targetArray) throws IOException {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
-            String line;
-            int index = 0;
-
-            while ((line = reader.readLine()) != null && index < targetArray.length) {
-                String[] parts = line.split(",");
-                if (parts.length == 5) {
-                    try {
-                        int id = Integer.parseInt(parts[0].trim());
-                        String nickname = parts[1].trim();
-                        String name = parts[2].trim();
-                        String phone = parts[3].trim();
-                        int expYears = Integer.parseInt(parts[4].trim());
-                        targetArray[index] = new Gamer(id, nickname, name, phone, expYears);
-                        index++;
-                    } catch (NumberFormatException e) {
-                        System.err.println("Invalid number format in gamer line: " + line);
-                    }
-                } else {
-                    System.err.println("Invalid gamer line format: " + line);
-                }
-            }
-        } finally {
-            if (reader != null) reader.close();
-        }
-    }
+    readGames(gamesCsvPath,  this.gamesArray);
+    readGamers(gamersCsvPath, this.gamersArray);
 }
+
+public Game[]  getGamesArray()  { return gamesArray; }
+public Gamer[] getGamersArray() { return gamersArray; }
+
+// ---------- internal helpers ----------
+
+private static int countValidRows(String path, int expectedColumns) throws IOException {
+    int count = 0;
+    try (BufferedReader br = new BufferedReader(
+            new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            line = line.trim();
+            if (line.isEmpty()) continue;
+
+            String[] parts = splitCsv(line);
+            // If there is a header row, the first token won't be an int; skip it gracefully.
+            if (parts.length < expectedColumns) continue;
+            if (!isInteger(parts[0])) continue;
+
+            count++;
+        }
+    }
+    return count;
+}
+
+private static void readGames(String path, Game[] target) throws IOException {
+    int i = 0;
+    try (BufferedReader br = new BufferedReader(
+            new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            line = line.trim();
+            if (line.isEmpty()) continue;
+
+            String[] p = splitCsv(line);
+            if (p.length < 3 || !isInteger(p[0])) continue; // skip header/invalid
+
+            int    id     = Integer.parseInt(p[0].trim());
+            String name   = p[1].trim();
+            int    basePt = Integer.parseInt(p[2].trim());
+
+            target[i++] = new Game(id, name, basePt);  // uses your Game class
+        }
+    }
+    if (i != target.length) throw new IOException("Parsed games count mismatch");
+}
+
+private static void readGamers(String path, Gamer[] target) throws IOException {
+    int i = 0;
+    try (BufferedReader br = new BufferedReader(
+            new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            line = line.trim();
+            if (line.isEmpty()) continue;
+
+            String[] p = splitCsv(line);
+            if (p.length < 5 || !isInteger(p[0])) continue; // skip header/invalid
+
+            int    id   = Integer.parseInt(p[0].trim());
+            String nick = p[1].trim();
+            String name = p[2].trim();
+            String tel  = p[3].trim();
+            int    exp  = Integer.parseInt(p[4].trim());
+
+            target[i++] = new Gamer(id, nick, name, tel, exp); // uses your Gamer class
+        }
+    }
+    if (i != target.length) throw new IOException("Parsed gamers count mismatch");
+}
+
+// Minimal CSV splitter for simple comma-separated values (no quotes with commas needed here).
+private static String[] splitCsv(String line) {
+    // Trim surrounding quotes if present for each field.
+    String[] raw = line.split(",", -1);
+    for (int i = 0; i < raw.length; i++) {
+        String s = raw[i].trim();
+        if (s.length() >= 2 && s.startsWith("\"") && s.endsWith("\"")) {
+            s = s.substring(1, s.length() - 1);
+        }
+        raw[i] = s;
+    }
+    return raw;
+}
+
+private static boolean isInteger(String s) {
+    try { Integer.parseInt(s.trim()); return true; }
+    catch (NumberFormatException e) { return false; }
+}
+}
+
 */
