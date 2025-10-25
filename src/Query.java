@@ -1,6 +1,16 @@
-public class Query {
+import java.awt.*;
 
+public class Query {
+    private Match[][] Scoreboard;
+    private GamerStats[] pointsBoard;
+
+    public Query(MatchManagement mm, PointsBoard pb){
+         this.Scoreboard = mm.getScoreboard();
+         this.pointsBoard = pb.getPointsBoard();
+
+    }
     public Match highestScoringMatch() {
+
     }
 
     // 2- In the lowest-scoring match, the most contributing game and its value

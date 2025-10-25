@@ -42,26 +42,21 @@ public class Match {
         matchPoints = skillPoints + bonusPoints;
     }
 
-    public void manageMatch() {
-        for (int matchNum = 1; matchNum <= MATCH_COUNT; matchNum++) {
-            int[] chosenGameIDs = RandUtil.randomIntegers(GAME_COUNT, games.length);
-            Game[] chosenGames = new Game[GAME_COUNT];
-            int[] rounds = new int[GAME_COUNT];
+    public static Match manageMatch(Game[] games) {
+        Game[] chosenGames = new Game[Config.GAME_COUNT];
+        int[] rounds = new int[Config.GAME_COUNT];
 
-            for (int i = 0; i < GAME_COUNT; i++) {
-                int id = chosenGameIDs[i];
-                chosenGames[i] = games[id - 1];   // convert ID → index
-                rounds[i] = RandUtil.randInt(Config.MAX_ROUNDS); // random rounds 1-10
-            }
-
-            Match match = new Match(matchNum, chosenGames, rounds);
+        int[] chosenIDs = RandUtil.randomIntegers(Config.GAME_COUNT, games.length);
+        for (int i = 0; i < Config.GAME_COUNT; i++) {
+            chosenGames[i] = games[chosenIDs[i] - 1];
+            rounds[i] = RandUtil.randInt(Config.MAX_ROUNDS);
         }
+
+        int matchNum = RandUtil.randInt(Config.MATCH_COUNT);
+        return new Match(matchNum, chosenGames, rounds);
     }
 
-    public Game chooseGame() {
-        int randomID = RandUtil.randInt(games.length);
-        return games[randomID - 1];
-    }
+
 
     public int getId() { return id; }
     public Game[] getGames() { return games; }
