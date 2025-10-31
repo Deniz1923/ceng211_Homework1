@@ -24,11 +24,11 @@ public class PointsBoard {
             }
             double averagePoints = (double) totalPoints /Config.MATCH_COUNT;
             Medal medal;
-            if(totalPoints >= 2000) {
+            if(totalPoints >= 4400) {
                 medal = Medal.GOLD;
-            } else if(totalPoints >= 1200) {
+            } else if(totalPoints >= 3800) {
                 medal = Medal.SILVER;
-            } else if(totalPoints >= 700) {
+            } else if(totalPoints >= 3500) {
                 medal = Medal.BRONZE;
             } else {
                 medal = Medal.NONE;
