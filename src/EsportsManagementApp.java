@@ -1,34 +1,56 @@
 public class EsportsManagementApp {
 
-    String GAMES_FILE_PATH = "games.csv";
-    String GAMERS_FILE_PATH = "gamers.csv";
-
-
-    /** Main Entry Point of the Program */
     public static void main(String[] args) {
         try {
-            // 1. Load games and gamers from CSV files
+            System.out.println("Loading data from CSV files...\n");
             FileIO fileIO = new FileIO("Games.csv", "Gamers.csv");
 
-            // 2. Initialize MatchManagement
             MatchManagement mm = new MatchManagement();
 
-            // 3. Generate all matches for all gamers
+            System.out.println("Generating matches...\n");
             mm.manageMatches();
 
-            // 4. Build PointsBoard
             PointsBoard pb = new PointsBoard(mm);
             pb.assignPointsBoard();
 
-            // 5. Initialize Query object
             Query query = new Query(mm, pb);
 
-            // 6. Test highest-scoring match
+            System.out.println("========================================");
+            System.out.println("       E-SPORTS TOURNAMENT RESULTS      ");
+            System.out.println("========================================\n");
 
+            System.out.println("=== QUERY 1: HIGHEST-SCORING MATCH ===");
+            query.printHighestScoringMatch();
+            System.out.println();
+
+            System.out.println("=== QUERY 2: LOWEST-SCORING MATCH & MOST CONTRIBUTING GAME ===");
+            query.printLowestScoringMatch();
+            System.out.println();
+
+            System.out.println("=== QUERY 3: MATCH WITH LOWEST BONUS POINTS ===");
+            query.printMatchWithLowestBonus();
+            System.out.println();
+
+            System.out.println("=== QUERY 4: HIGHEST-SCORING GAMER ===");
+            query.printHighestScoringGamer();
+            System.out.println();
+
+            System.out.println("=== QUERY 5: TOTAL TOURNAMENT POINTS ===");
+            System.out.printf("Total Tournament Points across 1500 matches: %,d\n",
+                    query.totalTournamentPoints());
+            System.out.println();
+
+            System.out.println("=== QUERY 6: MEDAL DISTRIBUTION ===");
+            System.out.println(query.medalDistribution());
+            System.out.println();
+
+            System.out.println("========================================");
+            System.out.println("       TOURNAMENT ANALYSIS COMPLETE     ");
+            System.out.println("========================================");
 
         } catch (Exception e) {
+            System.err.println("ERROR: An error occurred while running the application!");
             e.printStackTrace();
         }
-
     }
 }

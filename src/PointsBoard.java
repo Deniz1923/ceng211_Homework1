@@ -41,15 +41,11 @@ public class PointsBoard {
 
 
 
-    public GamerStats[] getPointsBoard() { return pointsBoard; }
+    public GamerStats[] getPointsBoard() {
+        return pointsBoard;
+    }
 
-    public Gamer[] getGamers() { return gamers; }
-}/*
-Total Points = sum of matchPoints over that gamer’s 15 matches.
-• Average Per Match = Total Points / 15.0 (you may format to 2 decimals).
-• Medal assignment (based on Total Points):
-o GOLD: ≥ 2000
-o SILVER: 1200–1999
-o BRONZE: 700–1199
-o NONE: < 700
-*/
+    public Gamer[] getGamers() {
+        return gamers;
+    }
+}

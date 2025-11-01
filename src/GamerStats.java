@@ -10,5 +10,16 @@ public class GamerStats {
         this.averagePoints = averagePoints;
         this.medal = medal;
     }
-
+    public Gamer getGamer() {
+        return gamer;
+    }
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+    public double getAveragePoints() {
+        return averagePoints;
+    }
+    public String getMedal() {
+        return medal;
+    }
 }

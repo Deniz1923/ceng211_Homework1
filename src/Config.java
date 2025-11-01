@@ -11,9 +11,9 @@ public final class Config {
     public static final int[]  BONUS_THRESH  = {0, 200, 400, 600};
     public static final int[]  BONUS_VALUES  = {10, 25, 50, 100};
 
-    public static final int MEDAL_GOLD_MIN   = 2000;
-    public static final int MEDAL_SILVER_MIN = 1200;
-    public static final int MEDAL_BRONZE_MIN = 700;
+    public static final int MEDAL_GOLD_MIN   = 4400;
+    public static final int MEDAL_SILVER_MIN = 3800;
+    public static final int MEDAL_BRONZE_MIN = 3500;
 
     public static final String GAMES_CSV_PATH  = "games.csv";
     public static final String GAMERS_CSV_PATH = "gamers.csv";

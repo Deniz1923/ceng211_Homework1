@@ -1,7 +1,3 @@
-/** Final Version of Gamer Object Class
-
- */
-
 public class Gamer {
     private final int ID;
     private final String Nickname;

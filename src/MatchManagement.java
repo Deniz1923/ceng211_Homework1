@@ -4,23 +4,22 @@ public class MatchManagement {
 
     private static final int MATCH_COUNT = Config.MATCH_COUNT;
     private static final int GAME_COUNT = Config.GAME_COUNT;
-    //for every player this should run manageMatch() for MATCH_COUNT * GamerCount
     private Gamer[] gamers;
     private Game[] games;
     private Match[][] Scoreboard;
 
     public MatchManagement() throws IOException {
-        FileIO fileIO = new FileIO("Games.csv", "Gamers.csv"); // or your actual paths
+        FileIO fileIO = new FileIO("Games.csv", "Gamers.csv");
         this.games = fileIO.getGamesArray();
         this.gamers = fileIO.getGamersArray();
         this.Scoreboard = new Match[gamers.length][MATCH_COUNT];
     }
 
     public void manageMatches(){
-        for(int i = 0; i < Scoreboard.length; i++){ //for the length of gamers
+        for(int i = 0; i < Scoreboard.length; i++){
             for(int j = 0; j < MATCH_COUNT; j++){
                 Match match = Match.manageMatch(games);
-                match.calculatePoints(gamers[i]);// calculate points for that match and set its fields correctly
+                match.calculatePoints(gamers[i]);
                 Scoreboard[i][j] = match;
             }
         }
@@ -33,7 +32,6 @@ public class MatchManagement {
     public Game[] getGames() {
         return games;
     }
-    //returning a new copy of scoreboard for safety.
     public Match[][] getScoreboard() {
         Match[][] copy = new Match[Scoreboard.length][];
 

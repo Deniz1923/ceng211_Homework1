@@ -8,7 +8,7 @@ public class RandUtil {
         return random.nextInt(upperLimit) + 1;
     }
 
-    public static int[] randomIntegers(int count, int upperLimit){ // return n integers all special in the set [1,upperLimit-1]
+    public static int[] randomIntegers(int count, int upperLimit){
         if(count > upperLimit){
             throw new IllegalArgumentException("Count cannot be greater than upperLimit");
         }

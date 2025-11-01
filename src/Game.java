@@ -1,5 +1,3 @@
-/** Final Version of Game Object Class */
-
 public class Game {
     private final int ID;
     private final String gameName;
