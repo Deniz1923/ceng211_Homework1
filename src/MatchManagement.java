@@ -9,7 +9,7 @@ public class MatchManagement {
     private Match[][] Scoreboard;
 
     public MatchManagement() throws IOException {
-        FileIO fileIO = new FileIO("Games.csv", "Gamers.csv");
+        FileIO fileIO = new FileIO(Config.GAMES_CSV_PATH, Config.GAMERS_CSV_PATH);
         this.games = fileIO.getGamesArray();
         this.gamers = fileIO.getGamersArray();
         this.Scoreboard = new Match[gamers.length][MATCH_COUNT];
