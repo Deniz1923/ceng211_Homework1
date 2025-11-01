@@ -3,7 +3,6 @@ public class EsportsManagementApp {
     public static void main(String[] args) {
         try {
             System.out.println("Loading data from CSV files...\n");
-            FileIO fileIO = new FileIO("Games.csv", "Gamers.csv");
 
             MatchManagement mm = new MatchManagement();
 
