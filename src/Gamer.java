@@ -12,7 +12,6 @@ public class Gamer {
         this.Nickname = Nickname.trim();
         this.ExperienceYears = ExperienceYears;
         this.Name = Name;
-        this.matches = new Match[15];
     }
 
     public int getID(){
