@@ -2,6 +2,7 @@ public class PointsBoard {
     private Gamer[] gamers;
     private Match[][] Scoreboard;
     private GamerStats[] pointsBoard;
+
     public PointsBoard(MatchManagement mm){
         this.Scoreboard = mm.getScoreboard();
         this.gamers = mm.getPlayers();
@@ -16,19 +17,18 @@ public class PointsBoard {
     }
 
     public void assignPointsBoard(){
-        //loop over 2d array Scoreboard
-        for(int i = 0; i < Scoreboard.length; i++){ // i = 0, first player, operations for each gamer
+        for(int i = 0; i < Scoreboard.length; i++){
             int totalPoints = 0;
             for(int j = 0; j < Scoreboard[i].length; j++){
                 totalPoints += Scoreboard[i][j].getMatchPoints();
             }
             double averagePoints = (double) totalPoints /Config.MATCH_COUNT;
             Medal medal;
-            if(totalPoints >= 4400) {
+            if(totalPoints >= Config.MEDAL_GOLD_MIN) {
                 medal = Medal.GOLD;
-            } else if(totalPoints >= 3800) {
+            } else if(totalPoints >= Config.MEDAL_SILVER_MIN) {
                 medal = Medal.SILVER;
-            } else if(totalPoints >= 3500) {
+            } else if(totalPoints >= Config.MEDAL_BRONZE_MIN) {
                 medal = Medal.BRONZE;
             } else {
                 medal = Medal.NONE;
@@ -39,13 +39,11 @@ public class PointsBoard {
         }
     }
 
-
-
     public GamerStats[] getPointsBoard() {
-        return pointsBoard;
+        return pointsBoard.clone();
     }
 
     public Gamer[] getGamers() {
-        return gamers;
+        return gamers.clone();
     }
 }

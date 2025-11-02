@@ -1,7 +1,4 @@
 public class Match {
-    private static final int MATCH_COUNT = Config.MATCH_COUNT;
-    private static final int GAME_COUNT = Config.GAME_COUNT;
-
     private int id;
     private Game[] games;
     private int[] rounds;
@@ -14,10 +11,14 @@ public class Match {
         this.id = id;
         this.games = games;
         this.rounds = rounds;
+        this.rawPoints = 0;
+        this.skillPoints = 0;
+        this.bonusPoints = 0;
+        this.matchPoints = 0;
     }
     public void calculatePoints(Gamer player) {
         rawPoints = 0;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Config.GAME_COUNT; i++) {
             rawPoints += rounds[i] * games[i].getBasePointPerRound();
         }
 
@@ -52,16 +53,14 @@ public class Match {
         return new Match(matchNum, chosenGames, rounds);
     }
 
-
-
     public int getId() {
         return id;
     }
     public Game[] getGames() {
-        return games;
+        return games.clone();
     }
     public int[] getRounds() {
-        return rounds;
+        return rounds.clone();
     }
     public int getRawPoints() {
         return rawPoints;
