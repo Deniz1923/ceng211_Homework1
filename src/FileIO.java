@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
  */
 public final class FileIO {
 
-    /** Backing arrays are final but still mutable through references returned by getters. */
+    // Backing arrays are final but still mutable through references returned by getters.
     private final Game[] gamesArray;
     private final Gamer[] gamersArray;
 
@@ -29,10 +29,6 @@ public final class FileIO {
 
     /**
      * Returns the array of loaded {@code Game}s.
-     *
-     * <p><strong>Encapsulation warning:</strong> this returns the backing array, which callers
-     * can modify. Consider returning a defensive copy: {@code return gamesArray.clone();}.
-     *
      * @return the (mutable) backing array of games
      */
     public Game[] getGamesArray() {
