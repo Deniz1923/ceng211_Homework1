@@ -4,7 +4,6 @@ public class Gamer {
     private final String Name;
     private final String Phone;
     private final int ExperienceYears;
-    private Match[] matches ;
 
     public Gamer(int ID, String Nickname, String Name, String Phone, int ExperienceYears){
         this.Phone = Phone;
@@ -29,6 +28,5 @@ public class Gamer {
     public int getExperienceYears(){
         return this.ExperienceYears;
     }
-    public Match[] getMatches() { return matches; }
-    public void setMatch(int index, Match match) { matches[index] = match; }
+
 }
