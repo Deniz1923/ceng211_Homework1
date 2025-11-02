@@ -1,8 +1,11 @@
 import java.util.Random;
 
-public class RandUtil {
+public final class RandUtil {
 
     private static final Random random = new Random();
+
+    private RandUtil() {
+    }
 
     public static int randInt(int upperLimit) {
         return random.nextInt(upperLimit) + 1;
@@ -33,8 +36,5 @@ public class RandUtil {
             }
         }
         return result;
-
-
-
     }
 }
