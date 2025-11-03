@@ -15,7 +15,7 @@ public class Game {
      *
      * @param ID                 positive unique identifier
      * @param gameName           non-blank display name of the game
-     * @param basePointsPerRound non-negative base points awarded per round
+     * @param basePointPerRound  non-negative base points awarded per round
      * @throws IllegalArgumentException if any parameter violates its constraint
      */
     public Game(int ID, String gameName, int basePointPerRound) {
@@ -35,7 +35,7 @@ public class Game {
     /** @return the human-readable game name (never blank) */
     public String getGameName() { return gameName; }
 
-    /** @return the non-negative base points awarded per round */
+    /** @return the non-negative base point awarded per round */
     public int getBasePointPerRound() { return basePointPerRound; }
 
     /**Two Game instances are considered equal if they share the same {@code id}.*/
