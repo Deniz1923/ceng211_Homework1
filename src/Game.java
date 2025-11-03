@@ -6,14 +6,9 @@
 
 public class Game {
 
-    // Unique positive identifier for the game.
-    private final int ID;
-
-    // Human-readable name of the game, non-blank.
-    private final String gameName;
-
-    // Base points awarded per round, non-negative.
-    private final int basePointPerRound;
+    private final int ID;                   // Unique positive identifier for the game.
+    private final String gameName;          // Human-readable name of the game, non-blank.
+    private final int basePointPerRound;    // Base points awarded per round, non-negative.
 
     /**
      * Creates an immutable Game instance.
@@ -24,9 +19,9 @@ public class Game {
      * @throws IllegalArgumentException if any parameter violates its constraint
      */
     public Game(int ID, String gameName, int basePointPerRound) {
-        if (ID <= 0) throw new IllegalArgumentException("id must be positive");
+        if (ID <= 0) throw new IllegalArgumentException("ID must be positive");
         if (gameName == null || gameName.isBlank()) throw new IllegalArgumentException("gameName cannot be blank");
-        if (basePointPerRound < 0) throw new IllegalArgumentException("basePointsPerRound must be non-negative");
+        if (basePointPerRound < 0) throw new IllegalArgumentException("basePointPerRound must be non-negative");
 
         this.ID = ID;
         this.gameName = gameName;
