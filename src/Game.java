@@ -1,9 +1,9 @@
 /** Represents a immutable single playable game in the tournament (e.g., "Fortnite", "Dota 2"). */
 public class Game {
 
-    private final int ID;                   // Unique positive identifier for the game.
-    private final String gameName;          // Human-readable name of the game, non-blank.
-    private final int basePointPerRound;    // Base points awarded per round, non-negative.
+    private final int    ID;                  // Unique positive identifier for the game.
+    private final String gameName;            // Human-readable name of the game, non-blank.
+    private final int    basePointPerRound;   // Base points awarded per round, non-negative.
 
     /**
      * Creates an immutable Game instance.

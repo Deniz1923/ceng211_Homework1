@@ -4,8 +4,8 @@
  */
 public class Query {
     // --- Data Sources ---
-    private final Match[][] Scoreboard;   // 2D array holding all played matches.
-    private final GamerStats[] pointsBoard; // Array holding accumulated statistics for all gamers.
+    private final Match[][]    Scoreboard;   // 2D array holding all played matches.
+    private final GamerStats[] pointsBoard;  // Array holding accumulated statistics for all gamers.
 
     /** Constructor: Initializes the Query object with data from MatchManagement and PointsBoard. */
     public Query(MatchManagement mm, PointsBoard pb){

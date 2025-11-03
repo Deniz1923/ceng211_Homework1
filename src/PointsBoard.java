@@ -1,8 +1,8 @@
 public class PointsBoard {
 
-    private final Gamer[] gamers;
-    private final Match[][] Scoreboard;
-    private final GamerStats[] pointsBoard;
+    private final Gamer[]       gamers;
+    private final Match[][]     Scoreboard;
+    private final GamerStats[]  pointsBoard;
 
     /**
      * Constructs a PointsBoard, initializing internal arrays with data

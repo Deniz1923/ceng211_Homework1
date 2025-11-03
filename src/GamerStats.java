@@ -1,7 +1,7 @@
 /** Class to reach the gamer's scores easily for query.*/
 public class GamerStats {
-    private final Gamer gamer;
-    private final int totalPoints;
+    private final Gamer  gamer;
+    private final int    totalPoints;
     private final double averagePoints;
     private final String medal;
 

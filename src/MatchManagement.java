@@ -8,8 +8,8 @@ import java.io.IOException;
 public class MatchManagement {
 
     // --- Fields ---
-    private final Gamer[] gamers;       // Array of all participants (loaded from file).
-    private final Game[] games;         // Array of all available games (loaded from file).
+    private final Gamer[]   gamers;     // Array of all participants (loaded from file).
+    private final Game[]    games;      // Array of all available games (loaded from file).
     private final Match[][] Scoreboard; // 2D array storing match results: Scoreboard[gamerIndex][matchIndex].
 
     /**
