@@ -1,4 +1,4 @@
-/**Class to reach the gamer's scores easily for query.*/
+/** Class to reach the gamer's scores easily for query.*/
 public class GamerStats {
     private final Gamer gamer;
     private final int totalPoints;

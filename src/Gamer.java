@@ -1,7 +1,4 @@
-/**
- * Immutable tournament participant.
- * All fields are final; no setters are provided.
- */
+/** Immutable tournament participant, Gamer Class. */
 public final class Gamer {
 
     private final int ID;                 // Positive unique identifier
@@ -11,7 +8,7 @@ public final class Gamer {
     private final int experienceYears;    // Non-negative years of experience
 
     /**
-     * Creates an immutable Gamer instance.
+     * Creates a Gamer instance.
      *
      * @param ID               positive unique identifier
      * @param nickname         non-blank nickname

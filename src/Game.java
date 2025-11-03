@@ -1,8 +1,4 @@
-/**
- * Represents a single playable game in the tournament (e.g., "Fortnite", "Dota 2").
- * This is an immutable data class, as all fields are final
- * and there are no setter methods.
- */
+/** Represents a immutable single playable game in the tournament (e.g., "Fortnite", "Dota 2"). */
 public class Game {
 
     private final int ID;                   // Unique positive identifier for the game.
