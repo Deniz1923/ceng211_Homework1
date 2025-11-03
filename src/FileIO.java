@@ -32,7 +32,7 @@ public final class FileIO {
      * @return the (mutable) backing array of games
      */
     public Game[] getGamesArray() {
-        return gamesArray;
+        return gamesArray.clone();
     }
 
     /**
@@ -40,7 +40,7 @@ public final class FileIO {
      * @return the (mutable) backing array of gamers
      */
     public Gamer[] getGamersArray() {
-        return gamersArray;
+        return gamersArray.clone();
     }
 
     /**
