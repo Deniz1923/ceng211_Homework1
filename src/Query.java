@@ -7,9 +7,7 @@ public class Query {
     private final Match[][] Scoreboard;   // 2D array holding all played matches.
     private final GamerStats[] pointsBoard; // Array holding accumulated statistics for all gamers.
 
-    /**
-     * Constructor: Initializes the Query object with data from MatchManagement and PointsBoard.
-     */
+    /** Constructor: Initializes the Query object with data from MatchManagement and PointsBoard. */
     public Query(MatchManagement mm, PointsBoard pb){
         // Get the match data structure.
         this.Scoreboard = mm.getScoreboard();
@@ -39,9 +37,7 @@ public class Query {
         return highest;
     }
 
-    /**
-     * Prints the detailed information of the highest-scoring match found by highestScoringMatch().
-     */
+    /** Prints the detailed information of the highest-scoring match found by highestScoringMatch(). */
     public void printHighestScoringMatch() {
         Match match = highestScoringMatch();
         System.out.println("Highest-Scoring Match:");
@@ -156,9 +152,7 @@ public class Query {
         return lowest;
     }
 
-    /**
-     * Prints the details of the match that received the lowest bonus points.
-     */
+    /** Prints the details of the match that received the lowest bonus points. */
     public void printMatchWithLowestBonus() {
         Match match = matchWithLowestBonus();
         System.out.println("Match with Lowest Bonus Points:");
@@ -196,9 +190,7 @@ public class Query {
         return maxIndex;
     }
 
-    /**
-     * Prints the key statistics and details for the highest-scoring gamer.
-     */
+    /** Prints the key statistics and details for the highest-scoring gamer. */
     public void printHighestScoringGamer() {
         int index = indexOfHighestScoringGamer();
         GamerStats stats = pointsBoard[index];

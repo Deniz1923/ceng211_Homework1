@@ -8,14 +8,10 @@ import java.util.Random;
  */
 public final class RandUtil {
 
-    /**
-     * A single, static instance of the Random class used for all random number generation.
-     */
+    /** A single, static instance of the Random class used for all random number generation. */
     private static final Random random = new Random();
 
-    /**
-     * The private constructor prevents instantiation of this utility class.
-     */
+    /** The private constructor prevents instantiation of this utility class. */
     private RandUtil() {
     }
 
