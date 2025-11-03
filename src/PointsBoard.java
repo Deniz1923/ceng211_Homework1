@@ -41,7 +41,7 @@ public class PointsBoard {
             }
 
             double averagePoints = (double) totalPoints /Config.MATCH_COUNT;
-            Medal medal;
+            Medal medal; //Not extracting the method as the IDE says to keep the understandability
 
             // Determine the medal based on predefined point thresholds in Config
             if(totalPoints >= Config.MEDAL_GOLD_MIN) {
