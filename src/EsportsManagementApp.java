@@ -6,7 +6,6 @@
  * 3. Calculating gamer points and medals.
  * 4. Running and printing all analytical queries.
  */
-
 public class EsportsManagementApp {
 
     /** The main method that runs the tournament simulation and analysis. */
@@ -62,7 +61,7 @@ public class EsportsManagementApp {
             System.out.println("========================================\n");
 
         } catch (Exception e) {
-            // Catch-all for any exceptions during runtime (e.g., IOException from FileIO)
+            // Catch-all for any exceptions during runtime, like IOException from FileIO
             System.err.println("ERROR: An error occurred while running the application!");
             e.printStackTrace();
         }
