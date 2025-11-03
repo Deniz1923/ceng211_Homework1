@@ -1,11 +1,12 @@
 /**
  * Main entry point for the E-Sports Tournament Management application.
- * This class is responsible for orchestrating the entire simulation:
+ * This class is kickstarts invoking of :
  * 1. Loading data from CSV files.
  * 2. Simulating all matches.
  * 3. Calculating gamer points and medals.
  * 4. Running and printing all analytical queries.
  */
+
 public class EsportsManagementApp {
 
     /**
