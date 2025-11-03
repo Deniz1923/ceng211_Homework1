@@ -2,9 +2,9 @@ import java.io.IOException;
 
 public class MatchManagement {
 
-    private Gamer[] gamers;
-    private Game[] games;
-    private Match[][] Scoreboard;
+    private final Gamer[] gamers;
+    private final Game[] games;
+    private final Match[][] Scoreboard;
 
     public MatchManagement() throws IOException {
         FileIO fileIO = new FileIO(Config.GAMES_CSV_PATH, Config.GAMERS_CSV_PATH);
@@ -27,9 +27,6 @@ public class MatchManagement {
         return gamers.clone();
     }
 
-    public Game[] getGames() {
-        return games.clone();
-    }
     public Match[][] getScoreboard() {
         Match[][] copy = new Match[Scoreboard.length][];
 

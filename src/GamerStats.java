@@ -1,9 +1,9 @@
 //Class to reach the gamer's scores easily for query.
 public class GamerStats {
-    private Gamer gamer;
-    private int totalPoints;
-    private double averagePoints;
-    private String medal;
+    private final Gamer gamer;
+    private final int totalPoints;
+    private final double averagePoints;
+    private final String medal;
 
     public GamerStats(Gamer gamer, int totalPoints, double averagePoints, String medal){
         this.gamer = gamer;

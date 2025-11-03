@@ -1,8 +1,8 @@
 public class PointsBoard {
 
-    private Gamer[] gamers;
-    private Match[][] Scoreboard;
-    private GamerStats[] pointsBoard;
+    private final Gamer[] gamers;
+    private final Match[][] Scoreboard;
+    private final GamerStats[] pointsBoard;
 
     /**
      * Constructs a PointsBoard, initializing internal arrays with data
@@ -69,11 +69,4 @@ public class PointsBoard {
         return pointsBoard.clone();
     }
 
-    /**
-     * Returns a defensive copy of the array containing all Gamer objects.
-     * * @return A clone of the gamers array.
-     */
-    public Gamer[] getGamers() {
-        return gamers.clone();
-    }
 }

@@ -1,7 +1,7 @@
 public class Match {
-    private int id;
-    private Game[] games;
-    private int[] rounds;
+    private final int id;
+    private final Game[] games;
+    private final int[] rounds;
     private int rawPoints;
     private int skillPoints;
     private int bonusPoints;

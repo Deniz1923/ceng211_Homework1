@@ -1,6 +1,6 @@
 public class Query {
-    private Match[][] Scoreboard;
-    private GamerStats[] pointsBoard;
+    private final Match[][] Scoreboard;
+    private final GamerStats[] pointsBoard;
 
     public Query(MatchManagement mm, PointsBoard pb){
         this.Scoreboard = mm.getScoreboard();
