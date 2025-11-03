@@ -8,7 +8,7 @@ import java.util.Objects; // Import required for Objects.nonNull
 /**
  * Utility class for file input/output operations.
  * This class is responsible for loading Game and Gamer records
- * from comma-separated value (CSV) files, using UTF-8 encoding.
+ * from comma-separated value (CSV) files encoded with UTF-8
  */
 public final class FileIO {
 
@@ -68,7 +68,7 @@ public final class FileIO {
     /**
      * Reads and parses the games CSV file into an array of Game objects.
      * Uses Java Streams to process the file line by line.
-     * This version filters out bad rows instead of crashing.
+     * Filters out bad rows instead of crashing.
      *
      * @param path The file path to the games CSV.
      * @return An array of parsed Game objects.

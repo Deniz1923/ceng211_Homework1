@@ -1,6 +1,4 @@
-/**
- * Represents a single match, storing the games played, rounds completed, and calculated scores.
- */
+/** Represents a single match, storing the games played, rounds completed, and calculated scores.*/
 public class Match {
     // --- Match Identification and Setup ---
     private final int id;       // Unique ID for the match.
@@ -13,9 +11,7 @@ public class Match {
     private int bonusPoints;   // Bonus awarded based on rawPoints achieved.
     private int matchPoints;   // Total points for the match (skillPoints + bonusPoints).
 
-    /**
-     * Constructor: Initializes the match with its ID, chosen games, and rounds played.
-     */
+    /** Constructor: Initializes the match with its ID, chosen games, and rounds played. */
     public Match(int id, Game[] games, int[] rounds) {
         this.id = id;
         this.games = games.clone();
@@ -87,13 +83,6 @@ public class Match {
     public int getId() {
         return id;
     }
-    // Returns clones to protect the internal arrays from external modification.
-    public Game[] getGames() {
-        return games.clone();
-    }
-    public int[] getRounds() {
-        return rounds.clone();
-    }
     public int getRawPoints() {
         return rawPoints;
     }
@@ -106,4 +95,12 @@ public class Match {
     public int getMatchPoints() {
         return matchPoints;
     }
+    // Returns clones to protect the internal arrays from external modification.
+    public Game[] getGames() {
+        return games.clone();
+    }
+    public int[] getRounds() {
+        return rounds.clone();
+    }
+
 }

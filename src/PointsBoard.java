@@ -16,9 +16,7 @@ public class PointsBoard {
         this.pointsBoard = new GamerStats[gamers.length];
     }
 
-    /**
-     * Enumeration representing the possible medal tiers a gamer can achieve.
-     */
+    /** Enumeration representing the possible medal tiers a gamer can achieve. */
     public enum Medal {
         GOLD,
         SILVER,

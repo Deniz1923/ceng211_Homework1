@@ -3,7 +3,6 @@
  * This is an immutable data class, as all fields are final
  * and there are no setter methods.
  */
-
 public class Game {
 
     private final int ID;                   // Unique positive identifier for the game.
