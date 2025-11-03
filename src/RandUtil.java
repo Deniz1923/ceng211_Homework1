@@ -21,18 +21,26 @@ public final class RandUtil {
 
     /**
      * Generates a random integer between 1 and a specified upper limit, inclusive.
-     *
-     * @param upperLimit The maximum inclusive value for the random integer.
-     * @return A random integer from 1 up to and including the upperLimit.
+     * @param upperLimit The *requested* maximum inclusive value.
+     * @return A random integer from 1 up to and including the *effective* limit.
      */
     public static int randInt(int upperLimit) {
-        // The method uses nextInt(upperLimit) to get a value from 0 to upperLimit - 1,
-        // and adds 1 to make the range 1 to upperLimit.
-        return random.nextInt(upperLimit) + 1;
+        // Enforce Config.MAX_ROUNDS as the absolute maximum limit
+        // This prevents other methods from accidentally generating a number too large.
+        int effectiveLimit = Math.min(upperLimit, Config.MAX_ROUNDS); //
+
+        // The method uses nextInt(effectiveLimit) to get a value from 0 to effectiveLimit - 1,
+        // and adds 1 to make the range 1 to effectiveLimit.
+        if (effectiveLimit <= 0) {
+            // Add a safety check in case effectiveLimit is 0 or negative
+            return 1;
+        }
+        return random.nextInt(effectiveLimit) + 1;
     }
 
     /**
      * Generates an array containing a specific count of unique random integers.
+     * (This method's logic is UNCHANGED per your request).
      * The integers are selected from the range of 1 up to a specified upper limit.
      *
      * @param count The number of unique random integers to be generated.
@@ -50,7 +58,20 @@ public final class RandUtil {
 
         // Loop until the desired count of unique integers is found.
         while(index < count){
-            int temp = randInt(upperLimit);
+            // Note: This call to randInt() is for game IDs, NOT rounds.
+            // It's generating a number up to 'upperLimit' (which is games.length).
+            // We'll create a separate randInt for this one to not cap it at MAX_ROUNDS.
+
+            // To be precise, we should use a private helper or be clear:
+            // The public randInt(upperLimit) is now capped for safety.
+            // If we need a random int NOT capped by MAX_ROUNDS, we should use this:
+            int temp = random.nextInt(upperLimit) + 1;
+
+            // ---
+            // If we wanted to use the capped method (which we don't for game IDs):
+            // int temp = randInt(upperLimit); // This would be WRONG here
+            // ---
+
             boolean exists = false;
 
             // Check if the newly generated number already exists in the 'result' array.
