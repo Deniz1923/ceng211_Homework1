@@ -123,7 +123,7 @@ public class Query {
         int maxContribution = -1;
         int maxIndex = 0;
 
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < Config.GAME_COUNT; i++){
             int contribution = rounds[i] * games[i].getBasePointPerRound();
             if(contribution > maxContribution){
                 maxContribution = contribution;

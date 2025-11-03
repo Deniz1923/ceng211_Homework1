@@ -5,49 +5,49 @@
 public final class Gamer {
 
     private final int ID;                 // Positive unique identifier
-    private final String Nickname;        // Non-blank nickname
-    private final String Name;            // Non-blank real name
-    private final String Phone;           // Non-blank phone (format not enforced)
-    private final int ExperienceYears;    // Non-negative years of experience
+    private final String nickname;        // Non-blank nickname
+    private final String name;            // Non-blank real name
+    private final String phone;           // Non-blank phone (format not enforced)
+    private final int experienceYears;    // Non-negative years of experience
 
     /**
      * Creates an immutable Gamer instance.
      *
      * @param ID               positive unique identifier
-     * @param Nickname         non-blank nickname
-     * @param Name             non-blank real name
-     * @param Phone            non-blank phone string
-     * @param ExperienceYears  non-negative years of experience
+     * @param nickname         non-blank nickname
+     * @param name             non-blank real name
+     * @param phone            non-blank phone string
+     * @param experienceYears  non-negative years of experience
      * @throws IllegalArgumentException if any argument is invalid
      */
-    public Gamer(int ID, String Nickname, String Name, String Phone, int ExperienceYears) {
+    public Gamer(int ID, String nickname, String name, String phone, int experienceYears) {
         if (ID <= 0) throw new IllegalArgumentException("ID must be positive");
-        if (Nickname == null || Nickname.isBlank()) throw new IllegalArgumentException("Nickname cannot be blank");
-        if (Name == null || Name.isBlank()) throw new IllegalArgumentException("Name cannot be blank");
-        if (Phone == null || Phone.isBlank()) throw new IllegalArgumentException("Phone cannot be blank");
-        if (ExperienceYears < 0) throw new IllegalArgumentException("ExperienceYears must be non-negative");
+        if (nickname == null || nickname.isBlank()) throw new IllegalArgumentException("Nickname cannot be blank");
+        if (name == null || name.isBlank()) throw new IllegalArgumentException("Name cannot be blank");
+        if (phone == null || phone.isBlank()) throw new IllegalArgumentException("Phone cannot be blank");
+        if (experienceYears < 0) throw new IllegalArgumentException("ExperienceYears must be non-negative");
 
         this.ID = ID;
-        this.Nickname = Nickname.trim();
-        this.Name = Name.trim();
-        this.Phone = Phone.trim();
-        this.ExperienceYears = ExperienceYears;
+        this.nickname = nickname.trim();
+        this.name = name.trim();
+        this.phone = phone.trim();
+        this.experienceYears = experienceYears;
     }
 
     /** @return the unique positive identifier */
     public int getID() { return ID; }
 
     /** @return the non-blank nickname */
-    public String getNickname() { return Nickname; }
+    public String getNickname() { return nickname; }
 
     /** @return the non-blank real name */
-    public String getName() { return Name; }
+    public String getName() { return name; }
 
     /** @return the non-blank phone string */
-    public String getPhone() { return Phone; }
+    public String getPhone() { return phone; }
 
     /** @return non-negative years of experience */
-    public int getExperienceYears() { return ExperienceYears; }
+    public int getExperienceYears() { return experienceYears; }
 
     /** Equality is based on {@code ID}. */
     @Override
@@ -63,5 +63,5 @@ public final class Gamer {
 
     /** @return Nickname of the Gamer */
     @Override
-    public String toString() { return Nickname; }
+    public String toString() { return nickname; }
 }

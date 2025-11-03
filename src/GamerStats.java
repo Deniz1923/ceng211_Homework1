@@ -6,6 +6,19 @@ public class GamerStats {
     private final String medal;
 
     public GamerStats(Gamer gamer, int totalPoints, double averagePoints, String medal){
+        if (gamer == null) {
+            throw new IllegalArgumentException("gamer cannot be null");
+        }
+        if (totalPoints < 0) {
+            throw new IllegalArgumentException("totalPoints cannot be negative");
+        }
+        if (averagePoints < 0) {
+            throw new IllegalArgumentException("averagePoints cannot be negative");
+        }
+        if (medal == null || medal.isBlank()) {
+            throw new IllegalArgumentException("medal cannot be null or blank");
+        }
+
         this.gamer = gamer;
         this.totalPoints = totalPoints;
         this.averagePoints = averagePoints;

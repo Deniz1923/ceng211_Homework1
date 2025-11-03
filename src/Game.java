@@ -47,6 +47,11 @@ public class Game {
         return ID == other.ID;
     }
 
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(ID);
+    }
+
     /** @return the Game Name */
     @Override
     public String toString() { return gameName; }

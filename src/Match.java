@@ -18,8 +18,8 @@ public class Match {
      */
     public Match(int id, Game[] games, int[] rounds) {
         this.id = id;
-        this.games = games;
-        this.rounds = rounds;
+        this.games = games.clone();
+        this.rounds = rounds.clone();
         this.rawPoints = 0;
         this.skillPoints = 0;
         this.bonusPoints = 0;
